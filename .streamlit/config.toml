@@ -1,0 +1,25 @@
+[server]
+# Local-only by default (the Railway start command overrides address and port). Keep in sync with MAX_FILE_MB.
+address = "localhost"
+maxUploadSize = 50
+headless = false
+# Serves ./static at /app/static/ (favicon and other public assets)
+enableStaticServing = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+# Hide Streamlit's developer toolbar ("Deploy", rerun menu) for end users.
+toolbarMode = "viewer"
+
+# TEN Capital Network dark theme (see headline_tuner/ui.py for the full styling)
+[theme]
+base = "dark"
+primaryColor = "#EE5A4E"
+backgroundColor = "#0B1526"
+secondaryBackgroundColor = "#16283F"
+textColor = "#F3F6FA"
+
+[logger]
+level = "info"

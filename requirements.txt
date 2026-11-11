@@ -1,0 +1,9 @@
+# Runtime dependencies (tested with the versions noted).
+anthropic>=2.8,<3          # tested 2.8.0
+streamlit>=1.50,<2         # tested 1.67.0
+pymupdf>=1.26              # tested 2.1
+python-pptx>=1.0.2,<2      # tested 1.0.2
+reportlab>=4.2,<6          # tested 5.1.0
+pydantic>=2.7,<3           # tested 2.14.3
+python-dotenv>=1.0         # tested 1.2.4
+pillow>=10.1               # tested 13.0.0

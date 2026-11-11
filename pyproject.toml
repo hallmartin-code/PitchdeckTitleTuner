@@ -1,0 +1,12 @@
+[project]
+name = "pitchdeck-headline-tuner"
+version = "1.0.0"
+description = "Review and improve startup pitch deck slide headlines; produces a one-page PDF review."
+requires-python = ">=3.11"
+readme = "README.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: integration tests that call LibreOffice (skipped automatically if it is not installed)"]
+addopts = "-ra"
+filterwarnings = ["ignore::DeprecationWarning"]

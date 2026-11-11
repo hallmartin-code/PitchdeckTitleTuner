@@ -1,0 +1,136 @@
+{
+  "template_name": "Pitch Deck Headline Review (one page)",
+  "template_version": 1,
+  "description": "General structure for every one-page headline review the app generates. Text in {braces} is filled from the analysis; nothing in this file refers to a specific company.",
+
+  "page": {
+    "size": "letter",
+    "orientation": "portrait",
+    "max_pages": 1,
+    "margins_in": {"left": 0.7, "right": 0.7, "top": 0.62, "bottom": 0.5},
+    "top_bar": {"height_in": 0.16, "accent_height_pt": 2.5}
+  },
+
+  "palette": {
+    "primary": "#1B2A4A",
+    "accent": "#0E7C72",
+    "row_tint": "#ECF6F4",
+    "muted_text": "#5A6472",
+    "rule": "#CAD4DD"
+  },
+
+  "typography": {
+    "font_family": "DejaVu Sans Condensed (embedded)",
+    "title_pt": 19,
+    "eyebrow_pt": 9,
+    "meta_pt": 8.5,
+    "section_heading_pt": 10.5,
+    "body_pt": 9.5,
+    "note_pt": 9,
+    "legend_pt": 8.5,
+    "footer_pt": 7.5,
+    "table_pt_steps": [9.5, 9.25, 9.0],
+    "min_table_pt": 9.0
+  },
+
+  "header": {
+    "eyebrow": "PITCH DECK HEADLINE REVIEW",
+    "title_field": "company_name",
+    "title_fallback": "Pitch Deck Headline Review",
+    "meta_separator": "  ·  ",
+    "meta_items": [
+      "Source: {source_filename}",
+      "{slide_count_summary}",
+      "Reviewed {review_date}"
+    ],
+    "slide_count_breakdown": {
+      "main": "{main_count} main deck",
+      "appendix": "{appendix_count} appendix",
+      "excluded": "{excluded_count} hidden, not reviewed"
+    }
+  },
+
+  "sections": [
+    {
+      "id": "narrative_assessment",
+      "enabled": true,
+      "heading": "Narrative assessment",
+      "field": "narrative_assessment",
+      "omit_if_empty": true,
+      "guidance": "At most 55 words: how well the current titles tell the story and what the recommended headlines change."
+    },
+    {
+      "id": "headline_table",
+      "enabled": true,
+      "heading": "Recommended headlines",
+      "coverage_note": "Showing {shown} of {total} main-deck slides; see the full review for all recommendations.",
+      "appendix_note": "Appendix slides ({appendix_count}) are reviewed in the full analysis.",
+      "columns": [
+        {"header": "Slide", "field": "slide_number", "width_in": 0.52, "style": "number"},
+        {"header": "Current title", "field": "current_title", "width_in": 1.95, "style": "text"},
+        {"header": "Recommended headline", "field": "recommended_headline", "width_in": null, "style": "headline"}
+      ],
+      "rows": "Main-deck slides only, in slide order. When not all fit, the opening slide is kept first, then slides are added by improvement priority (high, medium, low).",
+      "flag": {
+        "symbol": "†",
+        "applies_when": "evidence_status is not 'supported'",
+        "legend": "{symbol} Evidence in the deck is limited or conflicting; the headline is deliberately conservative. See the full review for the evidence gap."
+      }
+    },
+    {
+      "id": "priority_improvements",
+      "enabled": true,
+      "heading": "Priority improvements",
+      "max_items": 5,
+      "title_detail_separator": " — ",
+      "slide_ref_label_singular": "Slide",
+      "slide_ref_label_plural": "Slides",
+      "guidance": "Up to five, ranked most important first; fewer when fewer are justified. Title at most 8 words, detail at most 30 words."
+    }
+  ],
+
+  "footer": {
+    "text": "Findings are based solely on the content of the supplied deck ({source_filename}) and have not been independently verified; company claims are reported as stated. Recommended headlines are suggestions only; slide layouts were not edited or measured.",
+    "prepared_by": "Prepared by {prepared_by}.",
+    "generated": "Generated {review_date} with Pitch Deck Headline Tuner."
+  },
+
+  "analysis_fields": {
+    "deck": [
+      {"name": "company_name", "label": "Company name", "description": "Only if the deck identifies it; otherwise empty."},
+      {"name": "deck_filename", "label": "Source filename", "description": "Name of the uploaded file."},
+      {"name": "total_slides", "label": "Total slides", "description": "All slides in the file, including hidden ones."},
+      {"name": "included_slides", "label": "Reviewed slides", "description": "Slide numbers that were analyzed (one-based)."},
+      {"name": "extraction_limitations", "label": "Extraction limitations", "description": "Unreadable or partially extracted content, with affected slides."},
+      {"name": "narrative_assessment", "label": "Narrative assessment", "description": "Short deck-wide judgement of the story told by the headlines."},
+      {"name": "slide_reviews", "label": "Slide-by-slide reviews", "description": "Exactly one review per included slide, in slide order."},
+      {"name": "narrative_gaps", "label": "Narrative gaps", "description": "Story elements an investor would expect that the deck does not evidence."},
+      {"name": "appendix_summary", "label": "Appendix review", "description": "One or two sentences on the appendix slides, reviewed separately."},
+      {"name": "priority_improvements", "label": "Priority improvements", "description": "Up to five ranked improvements."}
+    ],
+    "slide_review": [
+      {"name": "slide_number", "label": "Slide", "description": "One-based slide number in original order."},
+      {"name": "current_title", "label": "Current title", "description": "Extracted or user-corrected title, or 'No identifiable title.'"},
+      {"name": "recommended_headline", "label": "Recommended headline", "description": "One complete sentence with an active verb, ideally 10–18 words, stating the takeaway."},
+      {"name": "key_fact", "label": "Feature / key fact", "description": "The capability or fact the headline is built on."},
+      {"name": "significance", "label": "Customer benefit / investor significance", "description": "Why the fact matters to a customer (product slides) or an investor (other slides)."},
+      {"name": "significance_type", "label": "Significance type", "allowed_values": ["customer_benefit", "investor_significance"]},
+      {"name": "supporting_slides", "label": "Supporting slides", "description": "Slide numbers whose content supports the headline."},
+      {"name": "cross_slide_support", "label": "Cross-slide support", "description": "True when support comes from other slides."},
+      {"name": "evidence_excerpt", "label": "Evidence", "description": "Short verbatim quote, or a factual description of visible image content."},
+      {"name": "evidence_source", "label": "Evidence source", "allowed_values": ["slide_text", "visual", "speaker_notes", "hidden_slide", "mixed"]},
+      {"name": "evidence_status", "label": "Evidence status", "allowed_values": ["supported", "intended_benefit", "insufficient_evidence", "conflicting_evidence"]},
+      {"name": "claim_types", "label": "Claim types", "allowed_values": ["actual_result", "forecast", "target", "pilot", "signed_contract", "expression_of_interest", "company_claim", "none"]},
+      {"name": "evidence_gap", "label": "Evidence gap", "description": "Evidence that is missing or would strengthen the headline."},
+      {"name": "conflict_note", "label": "Conflicting figures", "description": "Conflicting figures and the slides they appear on."},
+      {"name": "improvement_priority", "label": "Priority", "allowed_values": ["high", "medium", "low"]},
+      {"name": "section", "label": "Section", "allowed_values": ["main", "appendix"]}
+    ],
+    "priority_improvement": [
+      {"name": "rank", "label": "Rank", "description": "1 to 5, most important first."},
+      {"name": "title", "label": "Title", "description": "At most 8 words."},
+      {"name": "detail", "label": "Detail", "description": "At most 30 words."},
+      {"name": "slide_refs", "label": "Slides", "description": "Slide numbers the improvement applies to."}
+    ]
+  }
+}

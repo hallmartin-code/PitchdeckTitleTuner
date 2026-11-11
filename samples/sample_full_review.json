@@ -1,0 +1,368 @@
+{
+  "analysis": {
+    "company_name": "Tidewater Analytics",
+    "deck_filename": "tidewater_seed_deck.pptx",
+    "total_slides": 11,
+    "included_slides": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11
+    ],
+    "extraction_limitations": [
+      "Hidden slides were excluded by default: 10.",
+      "Speaker notes were excluded by default.",
+      "Slide 7: Slide is mostly an image with little extractable text; the rendered image was reviewed."
+    ],
+    "narrative_assessment": "The current titles name topics (Product, Traction, Team) rather than takeaways, so the story depends on the presenter. The recommended headlines carry the problem, product, early demand, forecast, and ask as one argument, while flagging the pilot-count conflict and the unevidenced team.",
+    "slide_reviews": [
+      {
+        "slide_number": 1,
+        "current_title": "Tidewater Analytics",
+        "recommended_headline": "Tidewater Analytics helps municipal water utilities find leaks with clip-on acoustic sensors.",
+        "key_fact": "Acoustic leak detection for municipal water utilities",
+        "significance": "Names the customer and the problem solved on the first slide",
+        "significance_type": "customer_benefit",
+        "supporting_slides": [
+          1,
+          3
+        ],
+        "cross_slide_support": true,
+        "evidence_excerpt": "Acoustic leak detection for municipal water utilities",
+        "evidence_source": "slide_text",
+        "evidence_status": "supported",
+        "claim_types": [
+          "none"
+        ],
+        "evidence_gap": "",
+        "conflict_note": "",
+        "improvement_priority": "medium",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 2,
+        "current_title": "The Problem",
+        "recommended_headline": "Utilities lose an estimated 6 billion gallons of treated water daily, and most leaks surface only after damage.",
+        "key_fact": "Estimated 6 billion gallons/day lost; leaks found after surface damage",
+        "significance": "Frames a large, costly problem for utilities",
+        "significance_type": "investor_significance",
+        "supporting_slides": [
+          2
+        ],
+        "cross_slide_support": false,
+        "evidence_excerpt": "US utilities lose an estimated 6 billion gallons of treated water per day (industry estimate cited by the company)",
+        "evidence_source": "slide_text",
+        "evidence_status": "supported",
+        "claim_types": [
+          "company_claim"
+        ],
+        "evidence_gap": "The underlying industry source is not named on the slide.",
+        "conflict_note": "",
+        "improvement_priority": "high",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 3,
+        "current_title": "Product",
+        "recommended_headline": "Clip-on hydrant sensors and a leak-detection model give repair crews a ranked leak list each morning.",
+        "key_fact": "Clip-on acoustic sensors on hydrants plus a machine-learning model",
+        "significance": "Crews start each day knowing which leaks to fix first",
+        "significance_type": "customer_benefit",
+        "supporting_slides": [
+          3
+        ],
+        "cross_slide_support": false,
+        "evidence_excerpt": "Repair crews receive a ranked leak list each morning",
+        "evidence_source": "slide_text",
+        "evidence_status": "supported",
+        "claim_types": [
+          "none"
+        ],
+        "evidence_gap": "",
+        "conflict_note": "",
+        "improvement_priority": "high",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 4,
+        "current_title": "Traction",
+        "recommended_headline": "A completed Marlow pilot and a signed Harbor County contract show early utility demand.",
+        "key_fact": "One completed pilot, one signed contract ($180K ACV), two letters of intent",
+        "significance": "Early validation from paying and piloting utilities",
+        "significance_type": "investor_significance",
+        "supporting_slides": [
+          4,
+          11
+        ],
+        "cross_slide_support": true,
+        "evidence_excerpt": "Harbor County | Signed contract | $180K annual contract value",
+        "evidence_source": "slide_text",
+        "evidence_status": "conflicting_evidence",
+        "claim_types": [
+          "pilot",
+          "signed_contract",
+          "expression_of_interest"
+        ],
+        "evidence_gap": "Clarify which pilot leak count is correct.",
+        "conflict_note": "Slide 4 reports 14 leaks located in 90 days; slide 11 reports 12 leaks confirmed by excavation in 90 days.",
+        "improvement_priority": "high",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 5,
+        "current_title": "Business Model",
+        "recommended_headline": "Per-sensor annual subscriptions of $1,200 are designed to create recurring utility revenue.",
+        "key_fact": "$1,200 per sensor per year plus $150 one-time installation",
+        "significance": "Recurring revenue that scales with sensors deployed",
+        "significance_type": "investor_significance",
+        "supporting_slides": [
+          5
+        ],
+        "cross_slide_support": false,
+        "evidence_excerpt": "Annual subscription: $1,200 per sensor per year",
+        "evidence_source": "slide_text",
+        "evidence_status": "intended_benefit",
+        "claim_types": [
+          "company_claim"
+        ],
+        "evidence_gap": "No renewal or retention data yet shows the revenue is recurring in practice.",
+        "conflict_note": "",
+        "improvement_priority": "medium",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 6,
+        "current_title": "Financials",
+        "recommended_headline": "Management forecasts revenue rising from a projected $0.4M in 2026 to $5.2M in FY2028.",
+        "key_fact": "Forecast revenue: 2026E $0.4M, 2027E $1.9M, 2028E $5.2M",
+        "significance": "Shows the growth plan investors are underwriting",
+        "significance_type": "investor_significance",
+        "supporting_slides": [
+          6
+        ],
+        "cross_slide_support": false,
+        "evidence_excerpt": "Forecast: $5.2M revenue in FY2028 (projected, not actual)",
+        "evidence_source": "slide_text",
+        "evidence_status": "supported",
+        "claim_types": [
+          "forecast"
+        ],
+        "evidence_gap": "Assumptions behind the forecast are not shown.",
+        "conflict_note": "",
+        "improvement_priority": "high",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 7,
+        "current_title": "No identifiable title.",
+        "recommended_headline": "A leak alerts dashboard ranks hydrant, main, and valve alerts by severity for each zone.",
+        "key_fact": "Dashboard listing zone alerts with high/medium/low severity",
+        "significance": "Shows crews what to inspect first",
+        "significance_type": "customer_benefit",
+        "supporting_slides": [
+          7
+        ],
+        "cross_slide_support": false,
+        "evidence_excerpt": "Image shows a 'Leak alerts dashboard' listing Zone 4 hydrant 112 as high severity",
+        "evidence_source": "visual",
+        "evidence_status": "supported",
+        "claim_types": [
+          "none"
+        ],
+        "evidence_gap": "Slide has no title or extractable text.",
+        "conflict_note": "",
+        "improvement_priority": "medium",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 8,
+        "current_title": "Team",
+        "recommended_headline": "Dana Ruiz leads as CEO and Sam Okafor as CTO; relevant experience is not yet shown.",
+        "key_fact": "CEO and CTO named",
+        "significance": "Investors cannot yet judge the team's fit for utility sales and sensing technology",
+        "significance_type": "investor_significance",
+        "supporting_slides": [
+          8
+        ],
+        "cross_slide_support": false,
+        "evidence_excerpt": "Dana Ruiz — CEO; Sam Okafor — CTO",
+        "evidence_source": "slide_text",
+        "evidence_status": "insufficient_evidence",
+        "claim_types": [
+          "none"
+        ],
+        "evidence_gap": "Add prior roles, domain experience, and track record for each founder.",
+        "conflict_note": "",
+        "improvement_priority": "high",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 9,
+        "current_title": "The Ask",
+        "recommended_headline": "A $3M seed round funds sales and product work toward 25 utility customers by Q4 2027.",
+        "key_fact": "$3M seed; 50% sales, 30% product, 20% operations",
+        "significance": "Links the raise to a specific customer target",
+        "significance_type": "investor_significance",
+        "supporting_slides": [
+          9
+        ],
+        "cross_slide_support": false,
+        "evidence_excerpt": "Target: 25 utility customers by Q4 2027",
+        "evidence_source": "slide_text",
+        "evidence_status": "supported",
+        "claim_types": [
+          "target"
+        ],
+        "evidence_gap": "",
+        "conflict_note": "",
+        "improvement_priority": "high",
+        "section": "main",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      },
+      {
+        "slide_number": 11,
+        "current_title": "Appendix: Pilot details",
+        "recommended_headline": "The Marlow pilot appendix reports 12 excavation-confirmed leaks, which conflicts with slide 4.",
+        "key_fact": "12 leaks confirmed by excavation in 90 days",
+        "significance": "Pilot detail investors will check against the traction slide",
+        "significance_type": "investor_significance",
+        "supporting_slides": [
+          11,
+          4
+        ],
+        "cross_slide_support": true,
+        "evidence_excerpt": "City of Marlow pilot: 12 leaks confirmed by excavation in 90 days",
+        "evidence_source": "slide_text",
+        "evidence_status": "conflicting_evidence",
+        "claim_types": [
+          "pilot"
+        ],
+        "evidence_gap": "The slide also contains embedded instructions, which were ignored.",
+        "conflict_note": "Slide 4 says 14 leaks located; this slide says 12 confirmed.",
+        "improvement_priority": "medium",
+        "section": "appendix",
+        "narrative_revision_reason": "",
+        "validation_warnings": []
+      }
+    ],
+    "narrative_gaps": [
+      "No competition or current-alternatives slide.",
+      "No go-to-market or sales-cycle evidence for utilities.",
+      "Founder experience is not evidenced."
+    ],
+    "appendix_summary": "The appendix gives pilot detail that conflicts with the traction slide's leak count.",
+    "priority_improvements": [
+      {
+        "rank": 1,
+        "title": "Resolve the pilot leak-count conflict",
+        "detail": "Slide 4 cites 14 leaks located; the appendix cites 12 confirmed by excavation. State one definition and one figure.",
+        "slide_refs": [
+          4,
+          11
+        ]
+      },
+      {
+        "rank": 2,
+        "title": "Evidence the founders' relevant experience",
+        "detail": "Add prior utility, sensing, or enterprise-sales roles so the team headline can make a supported claim.",
+        "slide_refs": [
+          8
+        ]
+      },
+      {
+        "rank": 3,
+        "title": "Keep forecasts labelled as forecasts",
+        "detail": "Retain “projected” and “E” labels in headlines and show the main forecast assumptions.",
+        "slide_refs": [
+          6
+        ]
+      },
+      {
+        "rank": 4,
+        "title": "Add a competition slide",
+        "detail": "Show how utilities find leaks today and why hydrant sensors compare favourably, using deck evidence.",
+        "slide_refs": [
+          2,
+          3
+        ]
+      },
+      {
+        "rank": 5,
+        "title": "Title the dashboard slide",
+        "detail": "Slide 7 is an image with no title; add a headline stating what crews gain from the dashboard.",
+        "slide_refs": [
+          7
+        ]
+      }
+    ],
+    "analysis_warnings": [],
+    "model": "synthetic (no model call)",
+    "options": {
+      "include_notes": false,
+      "include_hidden": false,
+      "send_all_images": false
+    },
+    "generated_at": "2026-11-11T00:00:00Z"
+  },
+  "main_deck_narrative": [
+    {
+      "slide_number": 1,
+      "headline": "Tidewater Analytics helps municipal water utilities find leaks with clip-on acoustic sensors."
+    },
+    {
+      "slide_number": 2,
+      "headline": "Utilities lose an estimated 6 billion gallons of treated water daily, and most leaks surface only after damage."
+    },
+    {
+      "slide_number": 3,
+      "headline": "Clip-on hydrant sensors and a leak-detection model give repair crews a ranked leak list each morning."
+    },
+    {
+      "slide_number": 4,
+      "headline": "A completed Marlow pilot and a signed Harbor County contract show early utility demand."
+    },
+    {
+      "slide_number": 5,
+      "headline": "Per-sensor annual subscriptions of $1,200 are designed to create recurring utility revenue."
+    },
+    {
+      "slide_number": 6,
+      "headline": "Management forecasts revenue rising from a projected $0.4M in 2026 to $5.2M in FY2028."
+    },
+    {
+      "slide_number": 7,
+      "headline": "A leak alerts dashboard ranks hydrant, main, and valve alerts by severity for each zone."
+    },
+    {
+      "slide_number": 8,
+      "headline": "Dana Ruiz leads as CEO and Sam Okafor as CTO; relevant experience is not yet shown."
+    },
+    {
+      "slide_number": 9,
+      "headline": "A $3M seed round funds sales and product work toward 25 utility customers by Q4 2027."
+    }
+  ]
+}
