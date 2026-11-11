@@ -28,3 +28,22 @@ def test_html_contains_all_sections_and_escapes_content():
         assert section in html
     for r in a.slide_reviews:
         assert f'id="slide-{r.slide_number}"' in html
+
+
+def test_results_bundle_contains_pdf_review_and_json_with_deck_text(deck_dir):
+    import io
+    import zipfile
+
+    from headline_tuner.exports import results_bundle
+
+    ex = extract_deck((deck_dir / "deck.pdf").read_bytes(), "deck.pdf", load_settings())
+    a = sample_analysis()
+    zf = zipfile.ZipFile(io.BytesIO(results_bundle("acme", a, ex, b"%PDF-1.4 test")))
+    assert sorted(zf.namelist()) == ["acme_analysis.json", "acme_full_review.html", "acme_headline_review.pdf"]
+    assert zf.read("acme_headline_review.pdf") == b"%PDF-1.4 test"
+    data = json.loads(zf.read("acme_analysis.json"))
+    assert data["extraction"]["slides"][4]["text"][0].startswith("Forecast:")
+    assert b"<!doctype html>" in zf.read("acme_full_review.html")
+
+    no_pdf = zipfile.ZipFile(io.BytesIO(results_bundle("acme", a, ex, None)))
+    assert "acme_headline_review.pdf" not in no_pdf.namelist()

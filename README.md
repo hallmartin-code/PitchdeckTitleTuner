@@ -140,7 +140,7 @@ renderer validates the template and will not accept settings that break the one-
 3. **Correct titles** that are wrong or flagged as uncertain, and **mark where the appendix starts**
    (detected automatically when a slide title starts with "Appendix").
 4. Choose options in the sidebar: include speaker notes, include hidden slides, send every slide image, or
-   use OCR. Notes and hidden slides are excluded by default. When included, they are labelled as separate
+   use OCR. OCR is on by default when Tesseract is installed. Notes and hidden slides are excluded by default. When included, they are labelled as separate
    evidence sources.
 5. Read the **privacy notice** and click **Analyze deck**. Nothing is sent to Anthropic before you click.
    The extracted text of the included slides, plus images of visual or image-based slides, is sent to the
@@ -151,7 +151,8 @@ renderer validates the template and will not accept settings that break the one-
    highest-priority slides are pre-selected, and the PDF says
    "Showing X of Y main-deck slides; see the full review for all recommendations." If your selection does not
    fit at 9 pt, the app asks you to reduce it rather than shrinking or clipping the text.
-8. **Download** the PDF, the HTML full review, or the JSON analysis. HTML and JSON are available even if PDF
+8. **Download** everything in one ZIP (one-page PDF, HTML full review, and JSON analysis including the extracted
+   deck text), or each file separately. HTML and JSON are available even if PDF
    rendering fails.
 
 Successful analyses are cached for the session. Re-clicking **Analyze deck** with the same deck, titles,

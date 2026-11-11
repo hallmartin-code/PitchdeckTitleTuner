@@ -18,6 +18,20 @@ def to_json(analysis: DeckAnalysis, extraction: DeckExtraction | None = None) ->
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
+def results_bundle(stem: str, analysis: DeckAnalysis, extraction: DeckExtraction | None, pdf: bytes | None) -> bytes:
+    """ZIP of every result: one-page PDF (when available), full review HTML, and JSON with extracted deck text."""
+    import io
+    import zipfile
+
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+        if pdf:
+            zf.writestr(f"{stem}_headline_review.pdf", pdf)
+        zf.writestr(f"{stem}_full_review.html", to_html(analysis))
+        zf.writestr(f"{stem}_analysis.json", to_json(analysis, extraction))
+    return buf.getvalue()
+
+
 def _e(s: object) -> str:
     return escape(str(s), quote=True)
 

@@ -17,7 +17,7 @@ from headline_tuner.analyzer import analyze_deck
 from headline_tuner.config import Settings, get_api_key, has_api_key, load_settings
 from headline_tuner.convert import INSTALL_INSTRUCTIONS, find_libreoffice
 from headline_tuner.errors import ConfigurationError, HeadlineTunerError, LayoutOverflowError
-from headline_tuner.exports import to_html, to_json
+from headline_tuner.exports import results_bundle, to_html, to_json
 from headline_tuner.extraction import extract_deck, ocr_available
 from headline_tuner.llm import AnthropicLLM
 from headline_tuner.models import (
@@ -132,7 +132,10 @@ with st.sidebar:
         "Send every slide image to the model", value=False,
         help="By default only image-based and visual slides (charts, pictures, diagrams) are sent as images.",
     )
-    use_ocr = st.checkbox("OCR fallback for image-based slides", value=False, disabled=not has_ocr)
+    use_ocr = st.checkbox(
+        "OCR fallback for image-based slides", value=has_ocr, disabled=not has_ocr,
+        help="On by default when Tesseract is installed. Only slides without extractable text are OCR'd.",
+    )
 
 # ---------------------------------------------------------------------------
 # 1. Hero card: upload
@@ -478,9 +481,14 @@ with tab_pdf:
 
 with tab_dl:
     stem = _stem(analysis)
+    st.download_button(
+        "Download all results (ZIP)", results_bundle(stem, analysis, extraction, pdf_bytes or None),
+        file_name=f"{stem}_results.zip", mime="application/zip", type="primary",
+        help="One-page PDF, full review (HTML) and full analysis (JSON, including the extracted deck text).",
+    )
     if pdf_bytes:
-        st.download_button("Download one-page PDF", pdf_bytes, file_name=f"{stem}_headline_review.pdf", mime="application/pdf", type="primary")
+        st.download_button("Download one-page PDF", pdf_bytes, file_name=f"{stem}_headline_review.pdf", mime="application/pdf")
     else:
-        st.caption("Fix the PDF selection in the One-page PDF tab to enable the PDF download.")
+        st.caption("Fix the PDF selection in the One-page PDF tab to include the PDF in downloads.")
     st.download_button("Download full review (HTML)", to_html(analysis), file_name=f"{stem}_full_review.html", mime="text/html")
     st.download_button("Download full analysis (JSON)", to_json(analysis, extraction), file_name=f"{stem}_analysis.json", mime="application/json")
