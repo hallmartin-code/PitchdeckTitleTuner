@@ -7,19 +7,24 @@ is HTML-escaped.
 
 from __future__ import annotations
 
+import base64
+from functools import lru_cache
 from html import escape
+from pathlib import Path
 
 import streamlit as st
 
-LOGO_SVG = """
-<svg class="tc-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M50 6 C64 6 74 16 74 16" stroke="#F3A22A" stroke-width="11" stroke-linecap="round"/>
-  <path d="M76 66 C76 82 63 92 63 92" stroke="#35BEBB" stroke-width="11" stroke-linecap="round"/>
-  <path d="M24 66 C24 82 37 92 37 92" stroke="#EE5A4E" stroke-width="11" stroke-linecap="round" transform="rotate(180 50 79)"/>
-  <circle cx="50" cy="20" r="11" fill="#F3A22A"/><circle cx="78" cy="68" r="11" fill="#35BEBB"/>
-  <circle cx="22" cy="68" r="11" fill="#EE5A4E"/>
-</svg>
-"""
+LOGO_PATH = Path(__file__).resolve().parent.parent / "static" / "favicon.png"
+
+
+@lru_cache(maxsize=1)
+def logo_html() -> str:
+    """The TEN Capital Network mark, embedded as a data URI so it renders without static serving."""
+    try:
+        data = base64.b64encode(LOGO_PATH.read_bytes()).decode("ascii")
+    except OSError:
+        return ""
+    return f'<img class="tc-mark" src="data:image/png;base64,{data}" alt="TEN Capital Network logo">'
 
 FILE_ICON = """
 <svg viewBox="0 0 24 24" fill="none" stroke="#F3F6FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -53,7 +58,8 @@ code{ font-family:'JetBrains Mono', monospace !important; }
 
 /* brand lockup */
 .tc-brand{ display:flex; align-items:center; gap:12px; max-width:680px; margin:4px auto 22px; padding-left:4px; }
-.tc-mark{ width:34px; height:34px; flex-shrink:0; }
+.tc-mark{ width:40px; height:40px; flex-shrink:0; border-radius:50%; background:#FFFFFF; padding:2px;
+  box-shadow:0 0 0 1px var(--navy-700); }
 .tc-word{ font-family:'Sora',sans-serif; font-weight:800; font-size:15px; letter-spacing:.04em; line-height:1.15;
   color:var(--ink-100); text-transform:uppercase; }
 .tc-word span{ display:block; font-weight:600; font-size:10px; letter-spacing:.22em; color:var(--ink-500); margin-top:2px; }
@@ -146,7 +152,7 @@ def inject_theme() -> None:
 
 
 def brand_html() -> str:
-    return (f'<div class="tc-brand">{LOGO_SVG}<div class="tc-word">Ten Capital<span>Network</span></div></div>')
+    return f'<div class="tc-brand">{logo_html()}<div class="tc-word">Ten Capital<span>Network</span></div></div>'
 
 
 def brand() -> None:

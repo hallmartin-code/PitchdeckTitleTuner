@@ -30,6 +30,7 @@ from headline_tuner.models import (
     SlideReview,
 )
 from headline_tuner import ui
+from headline_tuner.environment import START_COMMAND_UNIX, START_COMMAND_WINDOWS, environment_problems
 from headline_tuner.notify import EmailOutcome, send_results_email
 from headline_tuner.pdf_report import ReportContent, auto_select, preview_png, render_pdf
 
@@ -44,6 +45,16 @@ st.set_page_config(
     layout="wide",
 )
 ui.inject_theme()
+
+_env_problems = environment_problems()
+if _env_problems:
+    st.error(
+        "**This app was started with the wrong Python environment:** "
+        + "; ".join(_env_problems)
+        + ".\n\nStop it (Ctrl+C) and start it from the project folder with:\n\n"
+        + f"- Windows: `{START_COMMAND_WINDOWS}`\n- macOS/Linux: `{START_COMMAND_UNIX}`"
+    )
+    st.stop()
 
 
 def _secrets():
@@ -130,7 +141,7 @@ with st.sidebar:
 ui.brand()
 with st.container(key="tc-hero"):
     ui.hero_header(
-        "Deck Analyzer",
+        "Pitchdeck Title Tuner",
         "Pitch Deck",
         "Headline Review",
         "Upload a pitch deck and get evidence-supported slide headlines plus a polished one-page review PDF, "

@@ -136,7 +136,7 @@ def test_branded_landing_page(deck_dir):
     at = AppTest.from_file(str(ROOT / "app.py"), default_timeout=60).run()
     assert not at.exception
     html = " ".join(str(m.value) for m in at.markdown)
-    for part in ["TEN CAPITAL".title(), "Deck Analyzer", "Headline Review", "Powered by TEN Capital Network",
+    for part in ["TEN CAPITAL".title(), "Pitchdeck Title Tuner", "Headline Review", "data:image/png;base64,", "Powered by TEN Capital Network",
                  "Deck content is sent to Anthropic only when you click Analyze deck"]:
         assert part.lower() in html.lower(), part
     assert "gmail" not in html.lower()

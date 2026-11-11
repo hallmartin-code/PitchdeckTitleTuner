@@ -5,6 +5,11 @@ maxUploadSize = 50
 headless = false
 # Serves ./static at /app/static/ (favicon and other public assets)
 enableStaticServing = true
+# Keep a session (and its uploaded files) alive for 10 minutes after the browser's connection drops
+# (sleep, Wi-Fi blip, proxy idle timeout), so uploads after a reconnect are not rejected with HTTP 400.
+disconnectedSessionTTL = 600
+# Keep-alive pings so idle connections are not closed by proxies (e.g. Railway's edge).
+websocketPingInterval = 20
 
 [browser]
 gatherUsageStats = false

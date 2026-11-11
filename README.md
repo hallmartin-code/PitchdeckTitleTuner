@@ -52,10 +52,10 @@ python -m pip install --upgrade pip
 pip install -r requirements-dev.txt
 Copy-Item .env.example .env
 code .env        # set ANTHROPIC_API_KEY (and review ANTHROPIC_MODEL)
-streamlit run app.py
+.\run.ps1        # always starts the app with this project's .venv
 ```
 
-If PowerShell blocks `Activate.ps1`, run
+If PowerShell blocks `Activate.ps1` or `run.ps1`, run
 `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned` once, or skip activation and use
 `.\.venv\Scripts\python.exe -m streamlit run app.py`.
 
@@ -69,10 +69,12 @@ python -m pip install --upgrade pip
 pip install -r requirements-dev.txt
 cp .env.example .env
 code .env        # set ANTHROPIC_API_KEY (and review ANTHROPIC_MODEL)
-streamlit run app.py
+./run.sh         # always starts the app with this project's .venv
 ```
 
-The app opens at <http://localhost:8501>. To try it without a real deck, upload
+The app opens at <http://localhost:8501>. Start it with `run.ps1` / `run.sh` (or the venv's python) rather than a bare
+`streamlit run`: on machines with several Python installations, a bare command can pick up an older global
+Streamlit or Anthropic SDK. The app detects this and shows how to restart correctly. To try it without a real deck, upload
 `samples/tidewater_seed_deck.pptx` or `samples/tidewater_seed_deck.pdf`. Both are synthetic.
 
 ### Check your API key
